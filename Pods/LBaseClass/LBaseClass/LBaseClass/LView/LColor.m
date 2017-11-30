@@ -1,14 +1,14 @@
 //
-//  LButton.m
+//  LColor.m
 //  LBaseClass
 //
-//  Created by liqiang on 2017/11/29.
-//  Copyright © 2017年 leeqiang. All rights reserved.
+//  Created by liqiang on 2017/11/30.
+//  Copyright © 2017年 liqiang. All rights reserved.
 //
 
-#import "LButton.h"
+#import "LColor.h"
 
-@implementation LButton
+@implementation LColor
 
 #pragma mark - Interface
 
@@ -20,20 +20,8 @@
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    
-    [self initialize];
-    
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    
-    [self initialize];
-    
-    return self;
++ (UIColor *)randomColor {    
+    return [UIColor colorWithRed:arc4random_uniform(256) / 255.0f green:arc4random_uniform(256) / 255.0f blue:arc4random_uniform(256) / 255.0f alpha:arc4random_uniform(100) / 100.0f];
 }
 
 - (void)dealloc {

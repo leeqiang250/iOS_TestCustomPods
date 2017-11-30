@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LInitProtocol.h"
 
-@interface LTabBarController : UITabBarController
+@interface LTabBarController : UITabBarController<LInitProtocol>
+
+/**
+ *  唯一标识
+ */
+@property (nonatomic, strong) NSString *uid;
+
+/**
+ *  创建时间
+ */
+@property (nonatomic, assign) NSTimeInterval createTime;
 
 @end

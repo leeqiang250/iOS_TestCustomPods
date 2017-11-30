@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LInitProtocol.h"
 
-@interface LLabel : UILabel
+@interface LLabel : UILabel<LInitProtocol>
+
+/**
+ *  唯一标示
+ */
+@property (nonatomic, strong) NSString *uid;
+
+/**
+ *  创建时间
+ */
+@property (nonatomic, assign) NSTimeInterval createTime;
 
 @end

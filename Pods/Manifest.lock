@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - LBaseClass (1.0.6)
+  - LBaseClass (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
@@ -22,7 +22,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  LBaseClass: c5740e1049b686282f61f40ea2763fe84bcdc275
+  LBaseClass: 40976efd07012c0c0f36ca9dea7021323e408047
 
 PODFILE CHECKSUM: 13f775c55eda64637161f70630443b1914ea80a0
 

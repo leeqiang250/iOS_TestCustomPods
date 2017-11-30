@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LInitProtocol.h"
 
-@interface LObject : NSObject
+@interface LObject : NSObject<LInitProtocol>
+
+/**
+ *  唯一标示
+ */
+@property (nonatomic, strong) NSString *uid;
+
+/**
+ *  创建时间
+ */
+@property (nonatomic, assign) NSTimeInterval createTime;
 
 @end

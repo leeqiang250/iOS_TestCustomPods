@@ -1,19 +1,27 @@
 //
-//  LButton.m
+//  LTableView.m
 //  LBaseClass
 //
-//  Created by liqiang on 2017/11/29.
-//  Copyright © 2017年 leeqiang. All rights reserved.
+//  Created by liqiang on 2017/11/30.
+//  Copyright © 2017年 liqiang. All rights reserved.
 //
 
-#import "LButton.h"
+#import "LTableView.h"
 
-@implementation LButton
+@implementation LTableView
 
 #pragma mark - Interface
 
 - (instancetype)init {
     self = [super init];
+    
+    [self initialize];
+    
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     
     [self initialize];
     
@@ -28,8 +36,8 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    self = [super initWithFrame:frame style:style];
     
     [self initialize];
     

@@ -1,14 +1,14 @@
 //
-//  LButton.m
+//  LTextField.m
 //  LBaseClass
 //
-//  Created by liqiang on 2017/11/29.
-//  Copyright © 2017年 leeqiang. All rights reserved.
+//  Created by liqiang on 2017/11/30.
+//  Copyright © 2017年 liqiang. All rights reserved.
 //
 
-#import "LButton.h"
+#import "LTextField.h"
 
-@implementation LButton
+@implementation LTextField
 
 #pragma mark - Interface
 
@@ -20,16 +20,16 @@
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     
     [self initialize];
     
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     
     [self initialize];
     

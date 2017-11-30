@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LInitProtocol.h"
 
-@interface LImageView : UIImageView
+@interface LImageView : UIImageView<LInitProtocol>
+
+/**
+ *  唯一标示
+ */
+@property (nonatomic, strong) NSString *uid;
+
+/**
+ *  创建时间
+ */
+@property (nonatomic, assign) NSTimeInterval createTime;
 
 @end

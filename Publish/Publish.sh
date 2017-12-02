@@ -49,8 +49,19 @@ pod update --verbose --no-repo-update
 
 echo "--------------------(编译源文件)--------------------"
 
-xcodebuild archive -workspace TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish" clean build -derivedDataPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish"
+xcodebuild archive -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz/" clean build -derivedDataPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx/"
 
+
+
+#生成ipa
+xcodebuild -exportArchive -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish.xcarchive" -exportPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish" -exportOptionsPlist "$MWWorkspace/$MBPlistName"
+
+open $MWBuildDir
+
+作者：肆意二货
+链接：http://www.jianshu.com/p/36d2c6d65aa7
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
 #xcodebuild archive -TestCustomPods.xcworkspace -TestCustomPods

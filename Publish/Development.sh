@@ -15,15 +15,7 @@ pakageSuffix="ipa"
 #当前时间
 currentDay=`date "+%Y%m%d%H%M%S"`
 #当前路径
-workspacePath=`pwd`
-#编译模式：Release、Debug
-configuration="Release"
-#工作空间
-workspace="TestCustomPods"
-#目标工程
-targetProject="TestCustomPods"
-
-
+currentPath=`pwd`
 #APP原路径
 pakageSourcePath=${TARGET_BUILD_DIR}${appName}.app
 #安装包目标路径
@@ -45,23 +37,25 @@ echo "--------------------(开始过程)--------------------"
 
 
 echo "--------------------(删除安装包)--------------------"
-#rm -rf ${pakageTargetPath}
-#mkdir ${pakageTargetPath}
+rm -rf ${pakageTargetPath}
+mkdir ${pakageTargetPath}
 
 
 
 echo "--------------------(更新Pods)--------------------"
-#pod update --verbose --no-repo-update
-
-
-
-echo "--------------------(清理工程)--------------------"
-xcodebuild clean -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration ${configuration}
+pod update --verbose --no-repo-update
 
 
 
 echo "--------------------(编译源文件)--------------------"
-xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration ${configuration} -archivePath ${workspacePath}/${targetProject}
+
+
+xcodebuild clean -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods
+
+
+#xcodebuild -target targetName clean
+
+xcodebuild archive -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz/"
 
 
 #xcodebuild archive -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz/" clean build -derivedDataPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx/"
@@ -69,12 +63,19 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 
 #生成ipa
-#xcodebuild -exportArchive -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz.xcarchive" -exportPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx" -exportOptionsPlist "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/AdHocExportOptions.plist"
+xcodebuild -exportArchive -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz.xcarchive" -exportPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx" -exportOptionsPlist "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/AdHocExportOptions.plist"
+
+open $MWBuildDir
+
+作者：肆意二货
+链接：http://www.jianshu.com/p/36d2c6d65aa7
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
 #xcodebuild archive -TestCustomPods.xcworkspace -TestCustomPods
 #-Release
-#-${workspacePath}
+#-${currentPath}
 #CODE_SIGN_IDENTITY=${certificateName}
 #PROVISIONING_PROFILE=描述文件UUID
 
@@ -97,13 +98,8 @@ echo "--------------------(安装包路径)--------------------"
 echo "${pakageTargetPath}${pakageName}"
 
 
+echo "$IPAPATH"
 
-
-
-echo "工作空间路径：${workspacePath}"
-echo "工作空间：${workspace}"
-echo "目标工程：${targetProject}"
-echo "编译模式：${configuration}"
 
 
 

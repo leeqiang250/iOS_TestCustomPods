@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		82D8701ED6246249F24749E2 /* libPods-TestCustomPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5264B187CF93F080B43437 /* libPods-TestCustomPods.a */; };
 		D54D05FF1FD164F90087AF75 /* Publish.sh in Resources */ = {isa = PBXBuildFile; fileRef = D54D05FE1FD164F90087AF75 /* Publish.sh */; };
+		D54D06171FD2B28C0087AF75 /* AppStoreExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D54D06161FD2B28C0087AF75 /* AppStoreExportOptions.plist */; };
+		D54D06191FD2B2970087AF75 /* AdHocExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D54D06181FD2B2970087AF75 /* AdHocExportOptions.plist */; };
+		D54D061B1FD2B48A0087AF75 /* Development.sh in Resources */ = {isa = PBXBuildFile; fileRef = D54D061A1FD2B48A0087AF75 /* Development.sh */; };
 		D5E4EEAB1FCED6C500211899 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEA81FCED6C500211899 /* LICENSE */; };
 		D5E4EEAC1FCED6C500211899 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEA91FCED6C500211899 /* Podfile */; };
 		D5E4EEAD1FCED6C500211899 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEAA1FCED6C500211899 /* README.md */; };
@@ -25,6 +28,9 @@
 		B3A12C65FA03E4D30EEAAA41 /* Pods-TestCustomPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCustomPods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestCustomPods/Pods-TestCustomPods.debug.xcconfig"; sourceTree = "<group>"; };
 		C945E7F11FDDD7F3387C45F0 /* Pods-TestCustomPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCustomPods.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestCustomPods/Pods-TestCustomPods.release.xcconfig"; sourceTree = "<group>"; };
 		D54D05FE1FD164F90087AF75 /* Publish.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Publish.sh; sourceTree = "<group>"; };
+		D54D06161FD2B28C0087AF75 /* AppStoreExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppStoreExportOptions.plist; sourceTree = "<group>"; };
+		D54D06181FD2B2970087AF75 /* AdHocExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AdHocExportOptions.plist; sourceTree = "<group>"; };
+		D54D061A1FD2B48A0087AF75 /* Development.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Development.sh; sourceTree = "<group>"; };
 		D5E4EEA81FCED6C500211899 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D5E4EEA91FCED6C500211899 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		D5E4EEAA1FCED6C500211899 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -72,6 +78,9 @@
 		D54D05FA1FD163C10087AF75 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				D54D06181FD2B2970087AF75 /* AdHocExportOptions.plist */,
+				D54D06161FD2B28C0087AF75 /* AppStoreExportOptions.plist */,
+				D54D061A1FD2B48A0087AF75 /* Development.sh */,
 				D54D05FE1FD164F90087AF75 /* Publish.sh */,
 			);
 			path = Publish;
@@ -184,11 +193,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D54D061B1FD2B48A0087AF75 /* Development.sh in Resources */,
 				D5E4EEAD1FCED6C500211899 /* README.md in Resources */,
+				D54D06171FD2B28C0087AF75 /* AppStoreExportOptions.plist in Resources */,
 				D5E4EEAC1FCED6C500211899 /* Podfile in Resources */,
 				D5FC20CF1FCEB7660081AF72 /* LaunchScreen.storyboard in Resources */,
 				D54D05FF1FD164F90087AF75 /* Publish.sh in Resources */,
 				D5FC20CC1FCEB7660081AF72 /* Assets.xcassets in Resources */,
+				D54D06191FD2B2970087AF75 /* AdHocExportOptions.plist in Resources */,
 				D5E4EEAB1FCED6C500211899 /* LICENSE in Resources */,
 				D5FC20CA1FCEB7660081AF72 /* Main.storyboard in Resources */,
 			);

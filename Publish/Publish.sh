@@ -5,7 +5,9 @@ hostserver="www.suizhi.com"
 versionNumber="1.2.3.4"
 #编译号
 buildNumber="1111"
-
+#证书名称
+code_sign_identity="iPhone Distribution: Beijing PYC Software Co., Ltd. (FA78T6VRG8)"
+provisioning_profile=""
 #APP名称
 appName="TestCustomPods"
 #安装包后缀名
@@ -20,6 +22,9 @@ pakageSourcePath=${TARGET_BUILD_DIR}${appName}.app
 pakageTargetPath=${SRCROOT}/Publish/${currentDay}/
 #安装包名称
 pakageName=${appName}_${versionNumber}.${buildNumber}_${currentDay}_${hostserver}
+
+
+
 #--------------------(结束配置参数)--------------------
 
 
@@ -44,15 +49,18 @@ pod update --verbose --no-repo-update
 
 echo "--------------------(编译源文件)--------------------"
 
+xcodebuild archive -workspace TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish" clean build -derivedDataPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish"
 
 
-xcodebuild archive -TestCustomPods.xcworkspace -TestCustomPods
--Release
--${currentPath}
-CODE_SIGN_IDENTITY=证书
-PROVISIONING_PROFILE=描述文件UUID
+
+#xcodebuild archive -TestCustomPods.xcworkspace -TestCustomPods
+#-Release
+#-${currentPath}
+#CODE_SIGN_IDENTITY=${certificateName}
+#PROVISIONING_PROFILE=描述文件UUID
 
 
+#xcodebuild -workspace name.xcworkspace -scheme schemename -configuration Release -sdk iphoneos build CODE_SIGN_IDENTITY="$(CODE_SIGN_IDENTITY)" PROVISIONING_PROFILE="$(PROVISIONING_PROFILE)"
 
 #xcodebuild -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -sdk iphoneos11.1 IPHONEOS_DEPLOYMENT_TARGET=9.0
 

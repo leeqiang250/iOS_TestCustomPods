@@ -20,22 +20,24 @@ fi
 workspace="TestCustomPods"
 #目标工程
 targetProject="TestCustomPods"
+#plist文件路径
+plistPath=${workspace}/Info.plist
 #发布时间
 releaseTime=`date "+%Y%m%d%H%M%S"`
 #当前路径
 workspacePath=`pwd`
-
-
-#版本号
-versionNumber="1.2.3.4"
-#编译号
-compileNumber="1111"
-
-
+#版本编号
+versionNumber=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "${plistPath}")
+#编译编号
+shortNumber=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "${plistPath}")
+#编译编号自增
+shortNumber=$(expr $shortNumber + 1)
+#写入自增后的编译编号
+/usr/libexec/Plistbuddy -c "Set CFBundleVersion $shortNumber" "${plistPath}"
 #编译路径
 buildPath=${workspacePath}/${releaseTime}/
 #导出包名称
-exportPackageName=${targetProject}_${versionNumber}.${compileNumber}_${releaseTime}_${compileModel}_${hostserver}
+exportPackageName=${targetProject}_${versionNumber}.${shortNumber}_${releaseTime}_${compileModel}_${hostserver}
 #IPA名称
 ipaName=${exportPackageName}.ipa
 #IPA路径
@@ -113,7 +115,7 @@ echo "编译模式：${compileModel}"
 echo "编译SDK：${compileSDK}"
 echo "发布时间：${releaseTime}"
 echo "版本编号：${versionNumber}"
-echo "编译编号：${compileNumber}"
+echo "编译编号：${shortNumber}"
 echo "IPA名称：${ipaName}"
 echo "IPA路径：${ipaPath}"
 

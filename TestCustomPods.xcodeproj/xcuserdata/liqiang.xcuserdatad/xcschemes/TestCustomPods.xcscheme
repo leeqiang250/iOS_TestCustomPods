@@ -30,6 +30,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D5FC20BE1FCEB7660081AF72"
+            BuildableName = "TestCustomPods.app"
+            BlueprintName = "TestCustomPods"
+            ReferencedContainer = "container:TestCustomPods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

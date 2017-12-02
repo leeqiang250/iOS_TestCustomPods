@@ -1,8 +1,21 @@
-#--------------------(开始配置参数)--------------------
+echo "--------------------(开始参数配置)--------------------"
+
+
+
+#teamID需要配置
+
 #主机地址
 hostserver="www.suizhi.com"
-#编译模式：Release、Debug
-compileModel="Release"
+#编译模式：AppStore、AdHoc
+compileModel="AdHoc"
+#编译SDK：可用命令（xcodebuild -showsdks）查看
+compileSDK="iphoneos11.1"
+#导出参数：AdHocExportOptions、AppStoreExportOptions（需要设置teamID）
+if [ "${compileModel}" == "AppStore" ]; then
+exportOptions="AppStoreExportOptions"
+else
+exportOptions="AdHocExportOptions"
+fi
 #工作空间
 workspace="TestCustomPods"
 #目标工程
@@ -21,97 +34,74 @@ compileNumber="1111"
 
 #编译路径
 buildPath=${workspacePath}/${releaseTime}/
+#导出包名称
+exportPackageName=${targetProject}_${versionNumber}.${compileNumber}_${releaseTime}_${compileModel}_${hostserver}
 #IPA名称
-ipaName=${targetProject}_${compileModel}_${versionNumber}.${compileNumber}_${releaseTime}_${hostserver}.ipa
+ipaName=${exportPackageName}.ipa
 #IPA路径
 ipaPath=${buildPath}${ipaName}
+#Archive名称
+archiveName=${exportPackageName}.xcarchive
+#Archive路径
+archivePath=${buildPath}${archiveName}
 
 
 
+echo "--------------------(结束参数配置)--------------------"
 
-
-
-
-
-
-
-
-
-
-
-
-
-#证书名称
-#code_sign_identity="iPhone Distribution: Beijing PYC Software Co., Ltd. (FA78T6VRG8)"
-#provisioning_profile=""
-#APP名称
-#appName="TestCustomPods"
-
-
-#APP原路径
-#pakageSourcePath=${TARGET_BUILD_DIR}${appName}.app
-
-
-
-
-
-#--------------------(结束配置参数)--------------------
-
-
-#echo "$PROJECT_DIR"
-#echo "$TARGET_BUILD_DIR"
 
 
 echo "--------------------(开始过程)--------------------"
 
 
 
-echo "--------------------(删除安装包)--------------------"
+echo "--------------------(创建编译路径)--------------------"
+#删除IPA路径
 rm -rf ${buildPath}
+#创建IPA路径
 mkdir ${buildPath}
 
 
 
 echo "--------------------(更新Pods)--------------------"
-#pod update --verbose --no-repo-update
+#更新Pods
+pod update --verbose --no-repo-update
 
 
 
 echo "--------------------(清理工程)--------------------"
-#xcodebuild clean -workspace ${worckspace}.xcworkspace -scheme ${targetProject} -configuration ${compileModel}
+#清理工程
+xcodebuild clean -workspace ${worckspace}.xcworkspace -scheme ${targetProject} -configuration Release
 
 
 
-echo "--------------------(编译源文件)--------------------"
-#xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration ${compileModel} -archivePath ${workspacePath}/${targetProject}
-
-
-#xcodebuild archive -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz/" clean build -derivedDataPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx/"
-
-
-
-#生成ipa
-#xcodebuild -exportArchive -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz.xcarchive" -exportPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx" -exportOptionsPlist "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/AdHocExportOptions.plist"
-
-
-#xcodebuild archive -TestCustomPods.xcworkspace -TestCustomPods
-#-Release
-#-${workspacePath}
-#CODE_SIGN_IDENTITY=${certificateName}
-#PROVISIONING_PROFILE=描述文件UUID
-
-
-#xcodebuild -workspace name.xcworkspace -scheme schemename -configuration Release -sdk iphoneos build CODE_SIGN_IDENTITY="$(CODE_SIGN_IDENTITY)" PROVISIONING_PROFILE="$(PROVISIONING_PROFILE)"
-
-#xcodebuild -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -sdk iphoneos11.1 IPHONEOS_DEPLOYMENT_TARGET=9.0
-
-
-#xcrun -sdk iphoneos PackageApplication -v /Users/liqiang/Library/Developer/Xcode/DerivedData/TestCustomPods-bdamjkpldwkebzeskshvjchhgyyc/Build/Products/Release-iphoneos/TestCustomPods.app -o /Users/liqiang/Library/Developer/Xcode/DerivedData/TestCustomPods-bdamjkpldwkebzeskshvjchhgyyc/Build/Products/Release-iphoneos/TestCustomPods.ipa
+echo "--------------------(编译源代码)--------------------"
+#编译源代码
+xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration Release -archivePath ${archivePath} -sdk ${compileSDK}
 
 
 
-echo "--------------------(移动安装包)--------------------"
-#mv "${pakageSourcePath}" "${pakageTargetPath}${ipaName}"
+echo "--------------------(生成IPA)--------------------"
+#导出IPA
+xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
+
+
+
+echo "--------------------(移动IPA)--------------------"
+#删除Archive
+rm -rf ${archivePath}
+#遍历导出包
+for file in ${exportPackageName}/*
+do
+if test -f $file; then
+if [ "${file##*.}" == "ipa" ]; then
+#移动IPA
+mv $file ${ipaPath}
+fi
+fi
+done
+#移除导出包
+rm -rf ${exportPackageName}
 
 
 
@@ -120,6 +110,7 @@ echo "工作路径：${workspacePath}"
 echo "工作空间：${workspace}"
 echo "目标工程：${targetProject}"
 echo "编译模式：${compileModel}"
+echo "编译SDK：${compileSDK}"
 echo "发布时间：${releaseTime}"
 echo "版本编号：${versionNumber}"
 echo "编译编号：${compileNumber}"

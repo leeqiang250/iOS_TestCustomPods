@@ -11,7 +11,6 @@
 		D54D05FF1FD164F90087AF75 /* Publish.sh in Resources */ = {isa = PBXBuildFile; fileRef = D54D05FE1FD164F90087AF75 /* Publish.sh */; };
 		D54D06171FD2B28C0087AF75 /* AppStoreExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D54D06161FD2B28C0087AF75 /* AppStoreExportOptions.plist */; };
 		D54D06191FD2B2970087AF75 /* AdHocExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D54D06181FD2B2970087AF75 /* AdHocExportOptions.plist */; };
-		D54D061B1FD2B48A0087AF75 /* Development.sh in Resources */ = {isa = PBXBuildFile; fileRef = D54D061A1FD2B48A0087AF75 /* Development.sh */; };
 		D5E4EEAB1FCED6C500211899 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEA81FCED6C500211899 /* LICENSE */; };
 		D5E4EEAC1FCED6C500211899 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEA91FCED6C500211899 /* Podfile */; };
 		D5E4EEAD1FCED6C500211899 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEAA1FCED6C500211899 /* README.md */; };
@@ -30,7 +29,6 @@
 		D54D05FE1FD164F90087AF75 /* Publish.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Publish.sh; sourceTree = "<group>"; };
 		D54D06161FD2B28C0087AF75 /* AppStoreExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppStoreExportOptions.plist; sourceTree = "<group>"; };
 		D54D06181FD2B2970087AF75 /* AdHocExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AdHocExportOptions.plist; sourceTree = "<group>"; };
-		D54D061A1FD2B48A0087AF75 /* Development.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Development.sh; sourceTree = "<group>"; };
 		D5E4EEA81FCED6C500211899 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D5E4EEA91FCED6C500211899 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		D5E4EEAA1FCED6C500211899 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			children = (
 				D54D06181FD2B2970087AF75 /* AdHocExportOptions.plist */,
 				D54D06161FD2B28C0087AF75 /* AppStoreExportOptions.plist */,
-				D54D061A1FD2B48A0087AF75 /* Development.sh */,
 				D54D05FE1FD164F90087AF75 /* Publish.sh */,
 			);
 			path = Publish;
@@ -193,7 +190,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54D061B1FD2B48A0087AF75 /* Development.sh in Resources */,
 				D5E4EEAD1FCED6C500211899 /* README.md in Resources */,
 				D54D06171FD2B28C0087AF75 /* AppStoreExportOptions.plist in Resources */,
 				D5E4EEAC1FCED6C500211899 /* Podfile in Resources */,

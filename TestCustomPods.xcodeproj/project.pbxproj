@@ -77,9 +77,17 @@
 			path = Publish;
 			sourceTree = "<group>";
 		};
+		D54D06131FD296B10087AF75 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Build;
+			sourceTree = "<group>";
+		};
 		D5FC20B61FCEB7660081AF72 = {
 			isa = PBXGroup;
 			children = (
+				D54D06131FD296B10087AF75 /* Build */,
 				6731426F82D756A322972DFB /* Frameworks */,
 				D5E4EEA81FCED6C500211899 /* LICENSE */,
 				D5E4EEA91FCED6C500211899 /* Podfile */,

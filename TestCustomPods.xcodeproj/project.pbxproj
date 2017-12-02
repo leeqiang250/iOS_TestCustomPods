@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82D8701ED6246249F24749E2 /* libPods-TestCustomPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5264B187CF93F080B43437 /* libPods-TestCustomPods.a */; };
+		D54D05FF1FD164F90087AF75 /* Publish.sh in Resources */ = {isa = PBXBuildFile; fileRef = D54D05FE1FD164F90087AF75 /* Publish.sh */; };
 		D5E4EEAB1FCED6C500211899 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEA81FCED6C500211899 /* LICENSE */; };
 		D5E4EEAC1FCED6C500211899 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEA91FCED6C500211899 /* Podfile */; };
 		D5E4EEAD1FCED6C500211899 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5E4EEAA1FCED6C500211899 /* README.md */; };
@@ -23,6 +24,7 @@
 		1A5264B187CF93F080B43437 /* libPods-TestCustomPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestCustomPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A12C65FA03E4D30EEAAA41 /* Pods-TestCustomPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCustomPods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestCustomPods/Pods-TestCustomPods.debug.xcconfig"; sourceTree = "<group>"; };
 		C945E7F11FDDD7F3387C45F0 /* Pods-TestCustomPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCustomPods.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestCustomPods/Pods-TestCustomPods.release.xcconfig"; sourceTree = "<group>"; };
+		D54D05FE1FD164F90087AF75 /* Publish.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Publish.sh; sourceTree = "<group>"; };
 		D5E4EEA81FCED6C500211899 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D5E4EEA91FCED6C500211899 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		D5E4EEAA1FCED6C500211899 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D54D05FA1FD163C10087AF75 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				D54D05FE1FD164F90087AF75 /* Publish.sh */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
 		D5FC20B61FCEB7660081AF72 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 				D5E4EEA91FCED6C500211899 /* Podfile */,
 				520046BCEB2C82E354C8A2FB /* Pods */,
 				D5FC20C01FCEB7660081AF72 /* Products */,
+				D54D05FA1FD163C10087AF75 /* Publish */,
 				D5E4EEAA1FCED6C500211899 /* README.md */,
 				D5FC20C11FCEB7660081AF72 /* TestCustomPods */,
 			);
@@ -168,6 +179,7 @@
 				D5E4EEAD1FCED6C500211899 /* README.md in Resources */,
 				D5E4EEAC1FCED6C500211899 /* Podfile in Resources */,
 				D5FC20CF1FCEB7660081AF72 /* LaunchScreen.storyboard in Resources */,
+				D54D05FF1FD164F90087AF75 /* Publish.sh in Resources */,
 				D5FC20CC1FCEB7660081AF72 /* Assets.xcassets in Resources */,
 				D5E4EEAB1FCED6C500211899 /* LICENSE in Resources */,
 				D5FC20CA1FCEB7660081AF72 /* Main.storyboard in Resources */,
@@ -308,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,7 +369,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -369,12 +381,16 @@
 			baseConfigurationReference = B3A12C65FA03E4D30EEAAA41 /* Pods-TestCustomPods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FA78T6VRG8;
 				INFOPLIST_FILE = TestCustomPods/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liqiang.TestCustomPods;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pyc.DRM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -384,12 +400,16 @@
 			baseConfigurationReference = C945E7F11FDDD7F3387C45F0 /* Pods-TestCustomPods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FA78T6VRG8;
 				INFOPLIST_FILE = TestCustomPods/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liqiang.TestCustomPods;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pyc.DRM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

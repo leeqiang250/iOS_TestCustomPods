@@ -1,35 +1,57 @@
 #--------------------(开始配置参数)--------------------
 #主机地址
 hostserver="www.suizhi.com"
-#版本号
-versionNumber="1.2.3.4"
-#编译号
-buildNumber="1111"
-#证书名称
-code_sign_identity="iPhone Distribution: Beijing PYC Software Co., Ltd. (FA78T6VRG8)"
-provisioning_profile=""
-#APP名称
-appName="TestCustomPods"
-#安装包后缀名
-pakageSuffix="ipa"
-#当前时间
-currentDay=`date "+%Y%m%d%H%M%S"`
-#当前路径
-workspacePath=`pwd`
 #编译模式：Release、Debug
-configuration="Release"
+compileModel="Release"
 #工作空间
 workspace="TestCustomPods"
 #目标工程
 targetProject="TestCustomPods"
+#发布时间
+releaseTime=`date "+%Y%m%d%H%M%S"`
+#当前路径
+workspacePath=`pwd`
+
+
+#版本号
+versionNumber="1.2.3.4"
+#编译号
+compileNumber="1111"
+
+
+#编译路径
+buildPath=${workspacePath}/${releaseTime}/
+#IPA名称
+ipaName=${targetProject}_${compileModel}_${versionNumber}.${compileNumber}_${releaseTime}_${hostserver}.ipa
+#IPA路径
+ipaPath=${buildPath}${ipaName}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#证书名称
+#code_sign_identity="iPhone Distribution: Beijing PYC Software Co., Ltd. (FA78T6VRG8)"
+#provisioning_profile=""
+#APP名称
+#appName="TestCustomPods"
 
 
 #APP原路径
-pakageSourcePath=${TARGET_BUILD_DIR}${appName}.app
-#安装包目标路径
-pakageTargetPath=${SRCROOT}/Publish/${currentDay}/
-#安装包名称
-pakageName=${appName}_${versionNumber}.${buildNumber}_${currentDay}_${hostserver}
+#pakageSourcePath=${TARGET_BUILD_DIR}${appName}.app
+
+
 
 
 
@@ -45,8 +67,8 @@ echo "--------------------(开始过程)--------------------"
 
 
 echo "--------------------(删除安装包)--------------------"
-#rm -rf ${pakageTargetPath}
-#mkdir ${pakageTargetPath}
+rm -rf ${buildPath}
+mkdir ${buildPath}
 
 
 
@@ -56,12 +78,12 @@ echo "--------------------(更新Pods)--------------------"
 
 
 echo "--------------------(清理工程)--------------------"
-xcodebuild clean -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration ${configuration}
+#xcodebuild clean -workspace ${worckspace}.xcworkspace -scheme ${targetProject} -configuration ${compileModel}
 
 
 
 echo "--------------------(编译源文件)--------------------"
-xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration ${configuration} -archivePath ${workspacePath}/${targetProject}
+#xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} -configuration ${compileModel} -archivePath ${workspacePath}/${targetProject}
 
 
 #xcodebuild archive -workspace ../TestCustomPods.xcworkspace -scheme TestCustomPods -configuration Release -archivePath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/zzz/" clean build -derivedDataPath "/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/xxx/"
@@ -89,22 +111,20 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 
 echo "--------------------(移动安装包)--------------------"
-#mv "${pakageSourcePath}" "${pakageTargetPath}${pakageName}"
+#mv "${pakageSourcePath}" "${pakageTargetPath}${ipaName}"
 
 
 
-echo "--------------------(安装包路径)--------------------"
-echo "${pakageTargetPath}${pakageName}"
-
-
-
-
-
-echo "工作空间路径：${workspacePath}"
+echo "--------------------(参数列表)--------------------"
+echo "工作路径：${workspacePath}"
 echo "工作空间：${workspace}"
 echo "目标工程：${targetProject}"
-echo "编译模式：${configuration}"
-
+echo "编译模式：${compileModel}"
+echo "发布时间：${releaseTime}"
+echo "版本编号：${versionNumber}"
+echo "编译编号：${compileNumber}"
+echo "IPA名称：${ipaName}"
+echo "IPA路径：${ipaPath}"
 
 
 

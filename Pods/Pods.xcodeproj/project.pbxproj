@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -154,14 +154,14 @@
 		912CC2D538F9EE48FF996860245CA0E6 /* LViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LViewController.m; path = LBaseClass/LBaseClass/LController/LViewController.m; sourceTree = "<group>"; };
 		926765949B1B613F70027458CDDE23E2 /* LColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LColor.h; path = LBaseClass/LBaseClass/LView/LColor.h; sourceTree = "<group>"; };
 		92CEFED7D4FF8CBA5110C5D19F72F4B5 /* LTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTableView.m; path = LBaseClass/LBaseClass/LView/LTableView.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; };
 		9AFD16F702B237B7530725B9CDBA070D /* LObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LObject.h; path = LBaseClass/LBaseClass/LModel/LObject.h; sourceTree = "<group>"; };
 		9B11DDD17F878AC4847C344EAB2F3E74 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		A1208BC6E8AFBDE92009D04C3FCB3F6E /* LModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LModel.m; path = LBaseClass/LBaseClass/LModel/LModel.m; sourceTree = "<group>"; };
 		A1C16B69AA0BBDD93541D89D94C2F47B /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		A265112908A4F14324E652D2F018E7C7 /* LLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LLabel.h; path = LBaseClass/LBaseClass/LView/LLabel.h; sourceTree = "<group>"; };
 		A29264B9F7A00046C38DECF4A1504DE2 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		A42C2D66F6C3D4B07EF23BA12161A5F0 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42C2D66F6C3D4B07EF23BA12161A5F0 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4BE713FC25966A2158D839BE78213B0 /* LTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTableViewController.h; path = LBaseClass/LBaseClass/LController/LTableViewController.h; sourceTree = "<group>"; };
 		A64716173FC0305057230E14CDCC7A77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		A9DAE776BB64D88476CB32A7778175FC /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		ADBFE08F5AEC34A5E71AD0D3B311EB3E /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		AEB23266C3F7624138B35ADF29EF3BF7 /* LTabBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTabBarController.h; path = LBaseClass/LBaseClass/LController/LTabBarController.h; sourceTree = "<group>"; };
 		B810C76EEA0A378781AA523E2E3A9E04 /* Pods-TestCustomPods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TestCustomPods-acknowledgements.plist"; sourceTree = "<group>"; };
-		B86D98CBAF8FA0B68699C2EB27FB7298 /* libLBaseClass.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libLBaseClass.a; path = libLBaseClass.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86D98CBAF8FA0B68699C2EB27FB7298 /* libLBaseClass.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLBaseClass.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FDBCCB266ACFED93E55656FD8A014C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		C1048F344BB378E040FB8DE381A0A9D5 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		C2393B1E88B4F3EB5B1FB15E83FBBBE2 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		D0A6154C3A4B5114F42D1CEFB97958BA /* LBaseClass.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LBaseClass.xcconfig; sourceTree = "<group>"; };
 		D181EA31EC570C15274F3DD93AB9D265 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		D5FF90F769D010DD21A8EE3A19E3CE34 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
-		DA788E3FFB587A8B1EE0585B2902BB3A /* libPods-TestCustomPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TestCustomPods.a"; path = "libPods-TestCustomPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA788E3FFB587A8B1EE0585B2902BB3A /* libPods-TestCustomPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestCustomPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FB27C0A8F0BBE5C015F3EA773EBA83 /* LTabBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTabBar.m; path = LBaseClass/LBaseClass/LView/LTabBar.m; sourceTree = "<group>"; };
 		E4684E766A961BFED94960D57F13A5F9 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
 		EC8A7C0B6179467051ED95E59DB2AF9F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -263,7 +263,6 @@
 				7077EC79D41C6EA67AC10F9F66D34A71 /* Support Files */,
 				CD137E52B9DE8DE75F5B068CEB443097 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -304,7 +303,6 @@
 				912CC2D538F9EE48FF996860245CA0E6 /* LViewController.m */,
 				CC33B5890C192B62D744516AC41CBF3B /* Support Files */,
 			);
-			name = LBaseClass;
 			path = LBaseClass;
 			sourceTree = "<group>";
 		};

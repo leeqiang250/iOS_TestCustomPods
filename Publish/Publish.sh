@@ -87,7 +87,8 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 echo "--------------------(生成IPA)--------------------"
 #导出IPA
-xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist -exportProvisioningProfile "comkcashwalletleeqiangmac"
+#xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
+xcodebuild -exportArchive -archivePath ${archivePath} -exportPath . -exportOptionsPlist ~/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/EnterpriseExportOptions.plist
 
 
 echo "--------------------(移动IPA)--------------------"
@@ -127,6 +128,8 @@ echo "编译编号：${shortNumber}"
 echo "IPA名称：${ipaName}"
 echo "IPA路径：${ipaPath}"
 
+
+#pod 'LBaseClass'
 
 
 echo "--------------------(结束过程)--------------------"

@@ -2,10 +2,8 @@ echo "--------------------(开始参数配置)--------------------"
 
 
 
-#teamID需要配置
 
-#主机地址
-hostserver="www.suizhi.com"
+
 #编译模式：AppStore、AdHoc、Enterprise
 compileModel="Enterprise"
 #编译SDK：可用命令（xcodebuild -showsdks）查看
@@ -35,11 +33,11 @@ shortNumber=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "${plistPath}"
 #编译编号自增
 shortNumber=$(expr $shortNumber + 1)
 #写入自增后的编译编号
-/usr/libexec/Plistbuddy -c "Set CFBundleVersion $shortNumber" "${plistPath}"
+#/usr/libexec/Plistbuddy -c "Set CFBundleVersion $shortNumber" "${plistPath}"
 #编译路径
-buildPath=${workspacePath}/${releaseTime}/
+buildPath=${workspacePath}/${versionNumber}.${shortNumber}_${releaseTime}/
 #导出包名称
-exportPackageName=${targetProject}_${versionNumber}.${shortNumber}_${releaseTime}_${compileModel}_${hostserver}
+exportPackageName="Kcash"
 #IPA名称
 ipaName=${exportPackageName}.ipa
 #IPA路径
@@ -69,7 +67,7 @@ mkdir ${buildPath}
 
 echo "--------------------(更新Pods)--------------------"
 #更新Pods
-#####pod update --verbose --no-repo-update
+#pod update --verbose --no-repo-update
 
 
 
@@ -88,13 +86,12 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 echo "--------------------(生成IPA)--------------------"
 #导出IPA
 xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
-#xcodebuild -exportArchive -archivePath ${archivePath} -exportPath . -exportOptionsPlist /Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/EnterpriseExportOptions.plist
+
 
 
 echo "--------------------(移动IPA)--------------------"
 #删除Archive
-#rm -rf ${archivePath}
-echo "删除Archive：${archivePath}"
+rm -rf ${archivePath}
 #遍历导出包
 for file in ${exportPackageName}/*
 do
@@ -106,9 +103,7 @@ fi
 fi
 done
 #移除导出包
-echo "移动IPA：${ipaPath}"
-echo "移除导出包：${exportPackageName}"
-#rm -rf ${exportPackageName}
+rm -rf ${exportPackageName}
 
 
 
@@ -116,7 +111,6 @@ echo "--------------------(参数列表)--------------------"
 
 
 
-echo "xxx：${archivePath}"
 echo "工作路径：${workspacePath}"
 echo "工作空间：${workspace}"
 echo "目标工程：${targetProject}"

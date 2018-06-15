@@ -93,7 +93,7 @@ xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackag
 echo "--------------------(移动IPA)--------------------"
 #删除Archive
 #rm -rf ${archivePath}
-echo "移除导出包：${archivePath}"
+echo "删除Archive：${archivePath}"
 #遍历导出包
 for file in ${exportPackageName}/*
 do
@@ -105,6 +105,7 @@ fi
 fi
 done
 #移除导出包
+echo "移动IPA：${ipaPath}"
 echo "移除导出包：${exportPackageName}"
 #rm -rf ${exportPackageName}
 

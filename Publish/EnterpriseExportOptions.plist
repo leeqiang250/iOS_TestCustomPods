@@ -6,7 +6,20 @@
 	<false/>
 	<key>method</key>
 	<string>enterprise</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.kcash.wallet</key>
+		<string>com.kcash.wallet.leeqiangmac</string>
+	</dict>
+	<key>signingCertificate</key>
+	<string>iPhone Distribution</string>
+	<key>signingStyle</key>
+	<string>manual</string>
+	<key>stripSwiftSymbols</key>
+	<true/>
 	<key>teamID</key>
 	<string>X8HBZJP6R5</string>
+	<key>thinning</key>
+	<string>&lt;none&gt;</string>
 </dict>
 </plist>

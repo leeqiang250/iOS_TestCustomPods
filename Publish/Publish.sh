@@ -87,8 +87,8 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 echo "--------------------(生成IPA)--------------------"
 #导出IPA
-#xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
-xcodebuild -exportArchive -archivePath ${archivePath} -exportPath . -exportOptionsPlist ~/Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/EnterpriseExportOptions.plist
+xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
+#xcodebuild -exportArchive -archivePath ${archivePath} -exportPath . -exportOptionsPlist /Users/liqiang/Documents/GitHub/iOS_TestCustomPods/Publish/EnterpriseExportOptions.plist
 
 
 echo "--------------------(移动IPA)--------------------"

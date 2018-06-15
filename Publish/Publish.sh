@@ -6,8 +6,8 @@ echo "--------------------(开始参数配置)--------------------"
 
 #主机地址
 hostserver="www.suizhi.com"
-#编译模式：AppStore、AdHoc
-compileModel="AdHoc"
+#编译模式：AppStore、AdHoc、Enterprise
+compileModel="Enterprise"
 #编译SDK：可用命令（xcodebuild -showsdks）查看
 compileSDK="iphoneos11.3"
 #导出参数：AdHocExportOptions、AppStoreExportOptions（需要设置teamID）

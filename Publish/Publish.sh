@@ -87,8 +87,7 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 echo "--------------------(生成IPA)--------------------"
 #导出IPA
-xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist -exportFormat IPA -exportProvisioningProfile "XC: *"
-
+xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist -exportFormat IPA -exportProvisioningProfile "comkcashwalletleeqiangmac"
 
 
 echo "--------------------(移动IPA)--------------------"

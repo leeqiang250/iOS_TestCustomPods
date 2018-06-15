@@ -10,11 +10,13 @@ hostserver="www.suizhi.com"
 compileModel="Enterprise"
 #编译SDK：可用命令（xcodebuild -showsdks）查看
 compileSDK="iphoneos11.3"
-#导出参数：AdHocExportOptions、AppStoreExportOptions（需要设置teamID）
+#导出参数：AdHocExportOptions、AppStoreExportOptions、EnterpriseExportOptions（需要设置teamID）
 if [ "${compileModel}" == "AppStore" ]; then
 exportOptions="AppStoreExportOptions"
-else
+elif [ "${compileModel}" == "AdHoc" ];then
 exportOptions="AdHocExportOptions"
+else
+exportOptions="EnterpriseExportOptions"
 fi
 #工作空间
 workspace="TestCustomPods"

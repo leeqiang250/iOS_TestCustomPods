@@ -9,7 +9,7 @@ hostserver="www.suizhi.com"
 #编译模式：AppStore、AdHoc
 compileModel="AdHoc"
 #编译SDK：可用命令（xcodebuild -showsdks）查看
-compileSDK="iphoneos11.1"
+compileSDK="iphoneos11.3"
 #导出参数：AdHocExportOptions、AppStoreExportOptions（需要设置teamID）
 if [ "${compileModel}" == "AppStore" ]; then
 exportOptions="AppStoreExportOptions"
@@ -67,7 +67,7 @@ mkdir ${buildPath}
 
 echo "--------------------(更新Pods)--------------------"
 #更新Pods
-pod update --verbose --no-repo-update
+#####pod update --verbose --no-repo-update
 
 
 

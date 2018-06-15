@@ -87,12 +87,13 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 echo "--------------------(生成IPA)--------------------"
 #导出IPA
-xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist -exportFormat IPA -exportProvisioningProfile "comkcashwalletleeqiangmac"
+xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist -exportProvisioningProfile "comkcashwalletleeqiangmac"
 
 
 echo "--------------------(移动IPA)--------------------"
 #删除Archive
-rm -rf ${archivePath}
+#rm -rf ${archivePath}
+echo "移除导出包：${archivePath}"
 #遍历导出包
 for file in ${exportPackageName}/*
 do
@@ -104,11 +105,16 @@ fi
 fi
 done
 #移除导出包
-rm -rf ${exportPackageName}
+echo "移除导出包：${exportPackageName}"
+#rm -rf ${exportPackageName}
 
 
 
 echo "--------------------(参数列表)--------------------"
+
+
+
+echo "xxx：${archivePath}"
 echo "工作路径：${workspacePath}"
 echo "工作空间：${workspace}"
 echo "目标工程：${targetProject}"

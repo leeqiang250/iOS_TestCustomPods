@@ -6,79 +6,84 @@ channels[${#channels[*]}]=SSP
 packages[${#packages[*]}]=SSP-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
-channels[${#channels[*]}]=GXS
-packages[${#packages[*]}]=GXS-Kcash
-compiles[${#compiles[*]}]=Enterprise
+#channels[${#channels[*]}]=GXS
+#packages[${#packages[*]}]=GXS-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=BNE
+#packages[${#packages[*]}]=BNE-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=HNBC
+#packages[${#packages[*]}]=HNBC-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=BXS
+#packages[${#packages[*]}]=BXS-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=WSKJ
+#packages[${#packages[*]}]=WSKJ-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=DLM
+#packages[${#packages[*]}]=DLM-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=KTZS
+#packages[${#packages[*]}]=KTZS-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=XBJ
+#packages[${#packages[*]}]=XBJ-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=HK
+#packages[${#packages[*]}]=HK-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=RE
+#packages[${#packages[*]}]=RE-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=INTG
+#packages[${#packages[*]}]=INTG-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=B8
+#packages[${#packages[*]}]=B8-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=FGCJ
+#packages[${#packages[*]}]=FGCJ-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=STB
+#packages[${#packages[*]}]=STB-Kcash
+#compiles[${#compiles[*]}]=Enterprise
+#
+#channels[${#channels[*]}]=BEESTORE
+#packages[${#packages[*]}]=BEESTORE-Kcash
+#compiles[${#compiles[*]}]=Enterprise
 
-channels[${#channels[*]}]=BNE
-packages[${#packages[*]}]=BNE-Kcash
-compiles[${#compiles[*]}]=Enterprise
+#发布时间
+releaseTime=`date "+%Y%m%d%H%M%S"`
 
-channels[${#channels[*]}]=HNBC
-packages[${#packages[*]}]=HNBC-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=BXS
-packages[${#packages[*]}]=BXS-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=WSKJ
-packages[${#packages[*]}]=WSKJ-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=DLM
-packages[${#packages[*]}]=DLM-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=KTZS
-packages[${#packages[*]}]=KTZS-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=XBJ
-packages[${#packages[*]}]=XBJ-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=HK
-packages[${#packages[*]}]=HK-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=RE
-packages[${#packages[*]}]=RE-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=INTG
-packages[${#packages[*]}]=INTG-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=B8
-packages[${#packages[*]}]=B8-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=FGCJ
-packages[${#packages[*]}]=FGCJ-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=STB
-packages[${#packages[*]}]=STB-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-channels[${#channels[*]}]=BEESTORE
-packages[${#packages[*]}]=BEESTORE-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
-num=${#channels[*]}
-for((i=0;i<num;i++)) do
+#num=${#channels[*]}
+#for((i=0;i<num;i++)) do
 echo "--------------------(开始参数配置)--------------------"
 
 
 
-channel=${channels[i]}
-package=${packages[i]}
-compile=${compiles[i]}
-
-
-
+#渠道名称
+#channel=${channels[i]}
+channel=STB
+#导出包名称
+#package=${packages[i]}
+package=STB
 #编译模式：AppStore、AdHoc、Enterprise
+#compile=${compiles[i]}
+compile=Enterprise
 #编译SDK：可用命令（xcodebuild -showsdks）查看
 compileSDK="iphoneos11.3"
 #导出参数：AdHocExportOptions、AppStoreExportOptions、EnterpriseExportOptions（需要设置teamID）
@@ -95,8 +100,6 @@ workspace="TestCustomPods"
 targetProject="TestCustomPods"
 #plist文件路径
 plistPath=${workspace}/Info.plist
-#发布时间
-releaseTime=`date "+%Y%m%d%H%M%S"`
 #当前路径
 workspacePath=`pwd`
 #版本编号
@@ -109,14 +112,12 @@ shortNumber=$(expr $shortNumber + 1)
 #/usr/libexec/Plistbuddy -c "Set CFBundleVersion $shortNumber" "${plistPath}"
 #编译路径
 buildPath=${workspacePath}/${versionNumber}.${shortNumber}_${releaseTime}/
-#导出包名称
-exportPackageName="Kcash"
 #IPA名称
-ipaName=${exportPackageName}.ipa
+ipaName=${package}.ipa
 #IPA路径
 ipaPath=${buildPath}${ipaName}
 #Archive名称
-archiveName=${exportPackageName}.xcarchive
+archiveName=${package}.xcarchive
 #Archive路径
 archivePath=${buildPath}${archiveName}
 
@@ -158,7 +159,7 @@ xcodebuild archive -workspace ${workspace}.xcworkspace -scheme ${targetProject} 
 
 echo "--------------------(生成IPA)--------------------"
 #导出IPA
-xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportPackageName} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
+xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${package} -exportOptionsPlist ${workspacePath}/Publish/${exportOptions}.plist
 
 
 
@@ -166,7 +167,7 @@ echo "--------------------(移动IPA)--------------------"
 #删除Archive
 rm -rf ${archivePath}
 #遍历导出包
-for file in ${exportPackageName}/*
+for file in ${package}/*
 do
 if test -f $file; then
 if [ "${file##*.}" == "ipa" ]; then
@@ -176,7 +177,7 @@ fi
 fi
 done
 #移除导出包
-rm -rf ${exportPackageName}
+rm -rf ${package}
 
 
 
@@ -201,4 +202,4 @@ echo "IPA路径：${ipaPath}"
 
 echo "--------------------(结束过程)--------------------"
 
-done
+#done

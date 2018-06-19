@@ -1,12 +1,10 @@
-
-channels[${#channels[*]}]=SSP
-packages[${#packages[*]}]=SSP-Kcash
-compiles[${#compiles[*]}]=Enterprise
-
 channels[${#channels[*]}]=Enterprise
 packages[${#packages[*]}]=Kcash
 compiles[${#compiles[*]}]=Enterprise
 
+channels[${#channels[*]}]=SSP
+packages[${#packages[*]}]=SSP-Kcash
+compiles[${#compiles[*]}]=Enterprise
 
 #channels[${#channels[*]}]=GXS
 #packages[${#packages[*]}]=GXS-Kcash
@@ -72,11 +70,8 @@ compiles[${#compiles[*]}]=Enterprise
 releaseTime=`date "+%Y%m%d%H%M%S"`
 
 num=${#channels[*]}
-for((i=0;i<num;i++)) do
+for(( i=0;i<num;i++ )) do
 echo "--------------------(开始参数配置)--------------------"
-
-
-
 #渠道名称
 channel=${channels[i]}
 #导出包名称
@@ -142,6 +137,8 @@ echo "--------------------(更新Pods)--------------------"
 #更新Pods
 #pod update --verbose --no-repo-update
 
+#pod 'LBaseClass'
+
 
 
 echo "--------------------(清理工程)--------------------"
@@ -181,13 +178,6 @@ rm -rf ${package}
 
 
 echo "--------------------(参数列表)--------------------"
-
-echo "package：${package}"
-echo "archivePath：${archivePath}"
-echo "buildPath：${buildPath}"
-
-
-
 echo "工作路径：${workspacePath}"
 echo "工作空间：${workspace}"
 echo "目标工程：${targetProject}"
@@ -199,8 +189,6 @@ echo "编译编号：${shortNumber}"
 echo "IPA名称：${ipaName}"
 echo "IPA路径：${ipaPath}"
 
-
-#pod 'LBaseClass'
 
 
 echo "--------------------(结束过程)--------------------"

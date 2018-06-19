@@ -1,68 +1,90 @@
+#channels[${#channels[*]}]=AppStore_SPF
+#channelCodes[${#channelCodes[*]}]=A001S
+#packages[${#packages[*]}]=AppStore_SPF
+#compiles[${#compiles[*]}]=AppStore
+
 channels[${#channels[*]}]=SSP
+channelCodes[${#channelCodes[*]}]=E002S
 packages[${#packages[*]}]=SSP-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=GXS
+channelCodes[${#channelCodes[*]}]=E003G
 packages[${#packages[*]}]=GXS-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=BNE
+channelCodes[${#channelCodes[*]}]=E004B
 packages[${#packages[*]}]=BNE-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=HNBC
+channelCodes[${#channelCodes[*]}]=E005H
 packages[${#packages[*]}]=HNBC-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=BXS
+channelCodes[${#channelCodes[*]}]=E006B
 packages[${#packages[*]}]=BXS-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=WSKJ
+channelCodes[${#channelCodes[*]}]=E007W
 packages[${#packages[*]}]=WSKJ-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=DLM
+channelCodes[${#channelCodes[*]}]=E008D
 packages[${#packages[*]}]=DLM-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=KTZS
+channelCodes[${#channelCodes[*]}]=E009K
 packages[${#packages[*]}]=KTZS-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=XBJ
+channelCodes[${#channelCodes[*]}]=E010X
 packages[${#packages[*]}]=XBJ-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=HK
+channelCodes[${#channelCodes[*]}]=E011H
 packages[${#packages[*]}]=HK-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=RE
+channelCodes[${#channelCodes[*]}]=E012R
 packages[${#packages[*]}]=RE-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=INTG
+channelCodes[${#channelCodes[*]}]=E013I
 packages[${#packages[*]}]=INTG-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=B8
+channelCodes[${#channelCodes[*]}]=E014B
 packages[${#packages[*]}]=B8-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=FGCJ
+channelCodes[${#channelCodes[*]}]=E015F
 packages[${#packages[*]}]=FGCJ-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=STB
+channelCodes[${#channelCodes[*]}]=E016S
 packages[${#packages[*]}]=STB-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=BEESTORE
+channelCodes[${#channelCodes[*]}]=E017B
 packages[${#packages[*]}]=BEESTORE-Kcash
 compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=Enterprise
+channelCodes[${#channelCodes[*]}]=E001O
 packages[${#packages[*]}]=Kcash
 compiles[${#compiles[*]}]=Enterprise
 
@@ -75,6 +97,8 @@ for(( i=0;i<num;i++ )) do
 echo "--------------------(开始参数配置)--------------------"
 #渠道名称
 channel=${channels[i]}
+#渠道代码
+channelCode=${channelCodes[i]}
 #导出包名称
 package=${packages[i]}
 #编译模式：AppStore、AdHoc、Enterprise
@@ -102,7 +126,7 @@ versionNumber=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "
 #编译编号
 shortNumber=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "${plistPath}")
 #编译编号自增
-shortNumber=$(expr $shortNumber + 1)
+#shortNumber=$(expr $shortNumber + 1)
 #写入自增后的编译编号
 #/usr/libexec/Plistbuddy -c "Set CFBundleVersion $shortNumber" "${plistPath}"
 #编译路径
@@ -115,9 +139,10 @@ ipaPath=${buildPath}${ipaName}
 archiveName=${package}.xcarchive
 #Archive路径
 archivePath=${buildPath}${archiveName}
-
-
+#写入渠道名
 /usr/libexec/Plistbuddy -c "Set Channel $channel" "${plistPath}"
+#写入渠道码
+/usr/libexec/Plistbuddy -c "Set ChannelCode $channelCode" "${plistPath}"
 
 
 

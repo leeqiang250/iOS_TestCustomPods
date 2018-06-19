@@ -1,10 +1,12 @@
-channels[${#channels[*]}]=Enterprise
-packages[${#packages[*]}]=Kcash
-compiles[${#compiles[*]}]=Enterprise
 
 channels[${#channels[*]}]=SSP
 packages[${#packages[*]}]=SSP-Kcash
 compiles[${#compiles[*]}]=Enterprise
+
+channels[${#channels[*]}]=Enterprise
+packages[${#packages[*]}]=Kcash
+compiles[${#compiles[*]}]=Enterprise
+
 
 #channels[${#channels[*]}]=GXS
 #packages[${#packages[*]}]=GXS-Kcash
@@ -69,21 +71,18 @@ compiles[${#compiles[*]}]=Enterprise
 #发布时间
 releaseTime=`date "+%Y%m%d%H%M%S"`
 
-#num=${#channels[*]}
-#for((i=0;i<num;i++)) do
+num=${#channels[*]}
+for((i=0;i<num;i++)) do
 echo "--------------------(开始参数配置)--------------------"
 
 
 
 #渠道名称
-#channel=${channels[i]}
-channel=STB
+channel=${channels[i]}
 #导出包名称
-#package=${packages[i]}
-package=STB
+package=${packages[i]}
 #编译模式：AppStore、AdHoc、Enterprise
-#compile=${compiles[i]}
-compile=Enterprise
+compile=${compiles[i]}
 #编译SDK：可用命令（xcodebuild -showsdks）查看
 compileSDK="iphoneos11.3"
 #导出参数：AdHocExportOptions、AppStoreExportOptions、EnterpriseExportOptions（需要设置teamID）
@@ -133,7 +132,7 @@ echo "--------------------(开始过程)--------------------"
 
 echo "--------------------(创建编译路径)--------------------"
 #删除IPA路径
-rm -rf ${buildPath}
+#rm -rf ${buildPath}
 #创建IPA路径
 mkdir ${buildPath}
 
@@ -183,6 +182,10 @@ rm -rf ${package}
 
 echo "--------------------(参数列表)--------------------"
 
+echo "package：${package}"
+echo "archivePath：${archivePath}"
+echo "buildPath：${buildPath}"
+
 
 
 echo "工作路径：${workspacePath}"
@@ -202,4 +205,4 @@ echo "IPA路径：${ipaPath}"
 
 echo "--------------------(结束过程)--------------------"
 
-#done
+done

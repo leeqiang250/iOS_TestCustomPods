@@ -30,6 +30,12 @@
     _wordsSort = _hashWords.allValues;
     _wordsCount = _wordsSort.count;
     _keysCount = 12;
+    
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:_wordsSort options:0 error:nil];
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    id d = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
     return self;
 }
 - (NSArray *)getOriginalWords {

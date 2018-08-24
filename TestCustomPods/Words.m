@@ -8,7 +8,6 @@
 
 #import "Words.h"
 
-
 @interface Words() {
     NSMutableDictionary *_hashWords;
     NSArray *_wordsSort;
@@ -19,7 +18,6 @@
     NSArray *_startIndex;
     NSArray *_stopIndex;
 }
-
 
 @end
 

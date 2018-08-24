@@ -9,9 +9,9 @@
 #import "Words.h"
 
 @interface Words() {
-    NSArray *_words;
-    NSInteger _wordsCount;
-    NSInteger _keysCount;
+    NSMutableDictionary *_words;//助记词库
+    NSInteger _wordsCount;//助记词库数量
+    NSInteger _keysCount;//助记词长度
     
     NSMutableArray *_currentIndex;
     NSArray *_startIndex;
@@ -25,14 +25,18 @@
 - (instancetype)init {
     self = [super init];
 
-    NSData *data = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"words" ofType:@"txt"]];
-    _words = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    _wordsCount = _words.count;
     _keysCount = 12;
+    NSData *data = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"words" ofType:@"txt"]];
+    NSArray *words = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    _wordsCount = _words.count;
+    _words = [[NSMutableDictionary alloc] initWithCapacity:_wordsCount];
+    for (NSInteger i = 0; i < _wordsCount; i++) [_words setObject:[words objectAtIndex:i] forKey:[NSString stringWithFormat:@"%ld", i]];
+        
+    
+
     
     return self;
 }
-
 
 - (void)start {
     while (YES) {
@@ -55,7 +59,7 @@
 }
 - (NSString *)getWords:(NSArray *)keys {
     NSMutableArray *words = [[NSMutableArray alloc] initWithCapacity:keys.count];
-    for (NSString *key in keys) [words addObject:[_words objectAtIndex:key.integerValue]];
+    for (NSString *key in keys) [words addObject:[_words objectForKey:key]];
     //return [words componentsJoinedByString:@" "];
     return [keys componentsJoinedByString:@","];
 }
@@ -65,27 +69,27 @@
     _startIndex = arrIndex;
     _currentIndex = [_startIndex mutableCopy];
 }
-//- (void)setStopIndex:(NSString *)index {
-//    NSArray *arrIndex = [index componentsSeparatedByString:@","];
-//    if (arrIndex.count != _keysCount) arrIndex = nil;
-//    _stopIndex = arrIndex;
-//}
-//- (BOOL)isValid {
-//    if (_startIndex.count != _keysCount || _stopIndex.count != _keysCount) return NO;
-//
-//    BOOL state = NO;
-//    NSInteger count = _stopIndex.count;
-//    for (NSInteger i = 0; i < count; i++) {
-//        NSString *start = [_startIndex objectAtIndex:i];
-//        NSString *stop = [_stopIndex objectAtIndex:i];
-//        if (stop.integerValue > start.integerValue) {
-//            state = YES;
-//            break;
-//        }
-//    }
-//
-//    return state;
-//}
+- (void)setStopIndex:(NSString *)index {
+    NSArray *arrIndex = [index componentsSeparatedByString:@","];
+    if (arrIndex.count != _keysCount) arrIndex = nil;
+    _stopIndex = arrIndex;
+}
+- (BOOL)isValid {
+    if (_startIndex.count != _keysCount || _stopIndex.count != _keysCount) return NO;
+
+    BOOL state = NO;
+    NSInteger count = _stopIndex.count;
+    for (NSInteger i = 0; i < count; i++) {
+        NSString *start = [_startIndex objectAtIndex:i];
+        NSString *stop = [_stopIndex objectAtIndex:i];
+        if (stop.integerValue > start.integerValue) {
+            state = YES;
+            break;
+        }
+    }
+
+    return state;
+}
 - (NSString *)getFirstIndex {
     NSMutableArray *index = [[NSMutableArray alloc] initWithCapacity:_keysCount];
     for (NSInteger i = 0; i < _keysCount; i++) [index addObject:[NSString stringWithFormat:@"%ld", i]];

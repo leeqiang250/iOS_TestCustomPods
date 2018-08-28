@@ -13,9 +13,11 @@
     NSInteger _wordsCount;//助记词库数量
     NSInteger _keysCount;//助记词长度
     
-    NSMutableArray *_currentIndex;
-    NSArray *_startIndex;
+    NSMutableArray *_currentIndex;//当前索引
+    NSArray *_startIndex;//起始索引
     NSArray *_stopIndex;
+    
+    uint64_t _count;
 }
 
 @end
@@ -24,26 +26,62 @@
 
 - (instancetype)init {
     self = [super init];
-
     _keysCount = 12;
     NSData *data = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"words" ofType:@"txt"]];
     NSArray *words = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    _wordsCount = _words.count;
+    _wordsCount = words.count;
     _words = [[NSMutableDictionary alloc] initWithCapacity:_wordsCount];
     for (NSInteger i = 0; i < _wordsCount; i++) [_words setObject:[words objectAtIndex:i] forKey:[NSString stringWithFormat:@"%ld", i]];
-        
-    
-
-    
     return self;
 }
 
 - (void)start {
+    {
+        uint64_t count = 1;
+        uint64_t wordsCount = _wordsCount;
+        for (NSInteger i = 0; i < _keysCount; i++) {
+            count = count * wordsCount;
+            wordsCount--;
+        }
+        NSLog(@"%llu", count);
+    }
+    
+    _count = 0;
+    while (YES) {
+        [self fsdfd:_stopIndex];
+    }
+    
     while (YES) {
         NSLog(@"%@", [self getWords:_currentIndex]);
         if (![self next]) break;
     }
 }
+
+- (BOOL)fsdfd:(NSArray *)index {
+    for (NSInteger i = 0; i < index.count; i++) {
+        NSInteger v_i = ((NSString *)[index objectAtIndex:i]).integerValue;
+        if (v_i > 0) {
+            for (NSInteger j = 0; j < v_i; j++) {
+                _count += (_wordsCount - 1) * (_wordsCount - 2) * (_wordsCount - 3) * (_wordsCount - 4) * (_wordsCount - 5) * (_wordsCount - 6) * (_wordsCount - 7) * (_wordsCount - 8) * (_wordsCount - 9) * (_wordsCount - 10) * (_wordsCount - 11);
+            }
+        }
+        
+        
+        //v_i.integerValue
+        
+        
+        uint64_t dd = _wordsCount;
+        
+        
+        NSString *stop = [_stopIndex objectAtIndex:i];
+        
+        
+    }
+    
+    
+    return YES;
+}
+
 - (NSArray *)next {
     NSString *keyLast = _currentIndex.lastObject;
     NSInteger index = keyLast.integerValue + 1;
@@ -76,7 +114,7 @@
 }
 - (BOOL)isValid {
     if (_startIndex.count != _keysCount || _stopIndex.count != _keysCount) return NO;
-
+    
     BOOL state = NO;
     NSInteger count = _stopIndex.count;
     for (NSInteger i = 0; i < count; i++) {
@@ -87,7 +125,7 @@
             break;
         }
     }
-
+    
     return state;
 }
 - (NSString *)getFirstIndex {

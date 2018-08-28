@@ -19,8 +19,8 @@
 
 - (void)start;
 - (void)setStartIndex:(NSString *)index;
-//- (void)setStopIndex:(NSString *)index;
-//- (BOOL)isValid;
+- (void)setStopIndex:(NSString *)index;
+- (BOOL)isValid;
 
 - (NSString *)getFirstIndex;
 - (NSString *)getLastIndex;

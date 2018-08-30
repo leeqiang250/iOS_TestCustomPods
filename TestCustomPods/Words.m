@@ -32,6 +32,17 @@
     _wordsCount = words.count;
     _words = [[NSMutableDictionary alloc] initWithCapacity:_wordsCount];
     for (NSInteger i = 0; i < _wordsCount; i++) [_words setObject:[words objectAtIndex:i] forKey:[NSString stringWithFormat:@"%ld", i]];
+    
+    
+    //test
+    //[[NSClassFromString(@"Words") alloc] init];
+    [self setStartIndex:[self getFirstIndex]];
+    [self setStopIndex:@"3,4,5,6,7,8,9,10,11,12,13,14"];
+    if ([self isValid]) {
+        [self start];
+    }
+    //test
+    
     return self;
 }
 

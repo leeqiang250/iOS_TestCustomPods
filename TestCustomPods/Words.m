@@ -47,16 +47,6 @@
 }
 
 - (void)start {
-    {
-        uint64_t count = 1;
-        uint64_t wordsCount = _wordsCount;
-        for (NSInteger i = 0; i < _keysCount; i++) {
-            count = count * wordsCount;
-            wordsCount--;
-        }
-        NSLog(@"%llu", count);
-    }
-    
     _count = 0;
     while (YES) {
         [self fsdfd:_stopIndex];
@@ -69,26 +59,36 @@
 }
 
 - (BOOL)fsdfd:(NSArray *)index {
-    for (NSInteger i = 0; i < index.count; i++) {
-        NSInteger v_i = ((NSString *)[index objectAtIndex:i]).integerValue;
-        if (v_i > 0) {
-            for (NSInteger j = 0; j < v_i; j++) {
-                _count += (_wordsCount - 1) * (_wordsCount - 2) * (_wordsCount - 3) * (_wordsCount - 4) * (_wordsCount - 5) * (_wordsCount - 6) * (_wordsCount - 7) * (_wordsCount - 8) * (_wordsCount - 9) * (_wordsCount - 10) * (_wordsCount - 11);
+    if (index.count > 1) {
+        NSInteger v_0 = ((NSString *)[index objectAtIndex:0]).integerValue;
+        if (v_0 > 0) {
+            uint64_t count = v_0 - 1;
+            for (NSInteger j = 1; j < index.count; j++) {
+                uint64_t count_j = _wordsCount - j;
+                count = count * count_j;
             }
+            _count += count;
+        }
+
+        
+        uint64_t a3 = 1;
+        NSString *a0 = @"2,2047,2046,2045,2044,2043,2042,2041,2040,2039,2038,2037";
+        for (NSString *a1 in [a0 componentsSeparatedByString:@","]) {
+            uint64_t a2 = a1.intValue;
+            a3 = a3 * a2;
         }
         
         
-        //v_i.integerValue
+        [self getLength:[self totalCount]];
+        [self getLength:a3];
+        
+        a3 *= 1024;
+        
+        [self getLength:a3];
         
         
-        uint64_t dd = _wordsCount;
-        
-        
-        NSString *stop = [_stopIndex objectAtIndex:i];
-        
-        
+        [self fsdfd:[index subarrayWithRange:NSMakeRange(1, index.count - 1)]];
     }
-    
     
     return YES;
 }
@@ -150,5 +150,28 @@
     for (NSInteger i = (count - _keysCount); i < count; i++) [index addObject:[NSString stringWithFormat:@"%ld", i]];
     return [index componentsJoinedByString:@","];
 }
+
+
+
+
+
+- (uint64_t)totalCount {
+    uint64_t count = 1;
+    uint64_t wordsCount = _wordsCount;
+    for (NSInteger i = 0; i < _keysCount; i++) {
+        count = count * wordsCount;
+        wordsCount--;
+    }
+    
+    return count;
+}
+- (NSUInteger)getLength:(uint64_t)e {
+    NSLog(@"%llu", e);
+    NSUInteger length = [NSString stringWithFormat:@"%llu", e].length;
+    NSLog(@"%lu", length);
+
+    return length;
+}
+
 
 @end

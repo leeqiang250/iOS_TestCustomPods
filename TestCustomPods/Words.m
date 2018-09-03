@@ -47,14 +47,19 @@
 //}
 
 - (instancetype)init {
-    self = [super init];
+    self = [super init];    
     for (int i = 0; i < 1; i++) {
         dispatch_async(dispatch_queue_create([NSString stringWithFormat:@"queue_%d", i].UTF8String, DISPATCH_QUEUE_CONCURRENT), ^{
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 1; j++) {
                 NSString *path = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt", (int)NSDate.date.timeIntervalSince1970]];
                 NSData *data = [NSJSONSerialization dataWithJSONObject:[self geneWords] options:0 error:nil];
                 [data writeToFile:path atomically:YES];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
+                [vc addAction:[UIAlertAction actionWithTitle:@"title" style:UIAlertActionStyleDefault handler:nil]];
+                [[AppContext.sharedAppContext getTopViewController] presentViewController:vc animated:YES completion:nil];
+            });
         });
     }
     return self;

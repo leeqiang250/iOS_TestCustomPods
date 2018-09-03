@@ -201,7 +201,7 @@
 
 
 - (NSMutableArray *)geneWords {
-    int count = 10;
+    int count = 1000;
     NSMutableArray *words = [[NSMutableArray alloc] initWithCapacity:count];
     for (int i = 0; i < count; i++) {
         NSString *key = [VCBIP44Tool.sharedVCBIP44Tool generatePhraseWithPassword:nil];

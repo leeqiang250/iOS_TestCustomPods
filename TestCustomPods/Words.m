@@ -210,16 +210,22 @@
     NSMutableArray *words = [[NSMutableArray alloc] initWithCapacity:count];
     for (int i = 0; i < count; i++) {
         NSString *key = [VCBIP44Tool.sharedVCBIP44Tool generatePhraseWithPassword:nil];
-        NSArray *coins = [NSArray arrayWithObjects:@(BTC), @(ETH), @(ACT), @(LTC), @(GXS), @(EOS), nil];
-        NSMutableDictionary *infos = [[NSMutableDictionary alloc] initWithCapacity:coins.count];
+        NSArray *coins = [NSArray arrayWithObjects:@(BTC), @(ETH), @(ETC), @(BCH), @(ACT), @(LTC), @(GXS), @(EOS), nil];
+        NSMutableDictionary *infosV1 = [[NSMutableDictionary alloc] initWithCapacity:coins.count];
+        NSMutableDictionary *infosV2 = [[NSMutableDictionary alloc] initWithCapacity:coins.count];
         for (NSNumber *coin in coins) {
             CoinType cointype = (CoinType)coin.shortValue;
             [VCBIP44Tool.sharedVCBIP44Tool ImportPhrase:key withPassword:nil CoinTye:cointype out:^(NSString *privateKey, NSString *address) {
                 NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:privateKey, @"p", address, @"a", nil];
-                [infos setObject:info forKey:[NSString stringWithFormat:@"%d", cointype]];
+                [infosV1 setObject:info forKey:[NSString stringWithFormat:@"%d", cointype]];
+            }];
+            [[VCBIP44Tool sharedVCBIP44Tool] ImportPhrase_HD:key withPassword:nil CoinTye:cointype out:^(NSString *privateKey, NSString *address) {
+                NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:privateKey, @"p", address, @"a", nil];
+                [infosV2 setObject:info forKey:[NSString stringWithFormat:@"%d", cointype]];
             }];
         }
-        [words addObject:infos];
+        [words addObject:infosV1];
+        [words addObject:infosV2];
     }
     
     return words;
